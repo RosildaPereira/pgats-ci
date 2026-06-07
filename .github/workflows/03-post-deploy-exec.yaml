@@ -1,13 +1,18 @@
 # CI de Nível 01 - Disparo Manual através de clique
 
 # nome da pipeline
-name: "Execução Manual"
+name: "Execução por Deploy"
 
 # gatilhos / triggers - regras de disparo
 # gatilho manual = workflow_dispatch
+# gatilho agendado = schedule
+# gatilho por conclusão de outra pipeline = workflow_run
 
 on:
-    workflow_dispatch:
+    workflow_run:
+        workflows: ['Execução Manual , Scheduled Execution']
+        types: 
+          - completed
 
 #tarefas dentro da pipeline = jobs
 
@@ -42,7 +47,3 @@ jobs:
             # executar os testes e2e
             - name: Executando testes e2e
               run: yarn run e2e
-
-            # gerar o relatório do Playwright
-            - name: Playwright test report
-              uses: sidharthv96/playwright-report-action@v2.0-rc.5
