@@ -44,5 +44,8 @@ jobs:
               run: yarn run e2e
 
             # gerar o relatório do Playwright
-            - name: Playwright test report
-              uses: sidharthv96/playwright-report-action@v2.0-rc.5
+            - name: Upload Playwright HTML report
+              uses: actions/upload-artifact@v3
+              with:
+               name: playwright-report
+               path: playwright-report
