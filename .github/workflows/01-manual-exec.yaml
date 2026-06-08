@@ -50,6 +50,7 @@ jobs:
                name: playwright-report
                path: playwright-report
                
+
               name: Teste Runner
 
               on:
@@ -61,3 +62,4 @@ jobs:
                   steps:
                  - name: Mostrar mensagem
                     run: echo "Olá Rosilda, o runner está funcionando!"
+
