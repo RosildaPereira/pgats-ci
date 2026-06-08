@@ -49,3 +49,15 @@ jobs:
               with:
                name: playwright-report
                path: playwright-report
+               
+              name: Teste Runner
+
+              on:
+                workflow_dispatch:   # permite rodar manualmente pelo botão "Run workflow"
+
+              jobs:
+                hello-world:
+                  runs-on: self-hosted   # usa o runner da sua máquina
+                  steps:
+                 - name: Mostrar mensagem
+                    run: echo "Olá Rosilda, o runner está funcionando!"
